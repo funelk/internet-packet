@@ -454,6 +454,10 @@ impl InternetPacket {
         &self.data[self.payload_offset..self.payload_end]
     }
 
+    pub fn payload_mut(&mut self) -> &mut [u8] {
+        &mut self.data[self.payload_offset..self.payload_end]
+    }
+
     #[cfg(feature = "internet-checksum")]
     #[cfg_attr(docsrs, doc(cfg(feature = "internet-checksum")))]
     pub fn recalculate_ip_checksum(&mut self) {
