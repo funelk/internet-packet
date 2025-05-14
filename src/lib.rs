@@ -524,6 +524,17 @@ impl Display for ConnectionId {
     }
 }
 
+impl AsRef<[u8]> for InternetPacket {
+    fn as_ref(&self) -> &[u8] {
+        &self.data
+    }
+}
+impl AsMut<[u8]> for InternetPacket {
+    fn as_mut(&mut self) -> &mut [u8] {
+        &mut self.data
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use std::str::FromStr;
